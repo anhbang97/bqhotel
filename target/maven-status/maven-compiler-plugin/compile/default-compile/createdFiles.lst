@@ -1,0 +1,17 @@
+com\mycompany\pojo\TABLE_SERVICES.class
+com\mycompany\pojo\TABLE_MENU.class
+com\mycompany\service\Ser_Service.class
+com\mycompany\bean\Menu_Bean.class
+com\mycompany\bean\Customers_Bean.class
+com\mycompany\bqhotel\HibernateUtils.class
+com\mycompany\pojo\TABLE_ROOMS.class
+com\mycompany\converter\ServicesConverter.class
+com\mycompany\bqhotel\Demo.class
+com\mycompany\service\MenuService.class
+com\mycompany\pojo\bill.class
+com\mycompany\service\CustomersService.class
+com\mycompany\bean\Bill_Bean.class
+com\mycompany\service\RoomsService.class
+com\mycompany\bean\Rooms_Bean.class
+com\mycompany\pojo\TABLE_CUSTOMERS.class
+com\mycompany\validator\UploadValidator.class

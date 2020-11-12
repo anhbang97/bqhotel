@@ -1,0 +1,73 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" 
+                xmlns:h="http://xmlns.jcp.org/jsf/html" 
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <section class="hp-room-section">
+        <div class="container-fluid">
+            
+               
+                    <div class="section-title">
+                        <h2>Danh sách các phòng </h2>
+                    </div>
+             
+            
+            <div class="hp-room-items">
+                <div class="row">
+                    <c:forEach var="r" items="#{rooms_Bean.table_roomses}">
+                         <div class="col-lg-3 col-md-6">
+                        <div class="hp-room-item set-bg" >
+                            <h:graphicImage name="#{r.rooms_image}" library="img"/>
+                            <div class="hr-text">
+                                <h3>#{r.rooms_name}</h3>
+                                
+                                <h2>#{rMsg["rooms.rooms_prices"]}<span>:#{r.rooms_prices}</span></h2>
+                                <table>
+                                    <tbody>
+                                         <tr>
+                                            <td class="r-o">#{rMsg["rooms.rooms_category"]}: </td>
+                                            <td>#{r.rooms_prices}</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="r-o">#{rMsg["rooms.rooms_sizes"]}: </td>
+                                            <td>(#{r.rooms_sizes} met vuông )</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="r-o">#{rMsg["rooms.rooms_bed"]}</td>
+                                            <td>#{r.rooms_bed}</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="r-o">#{rMsg["rooms.rooms_descriptions"]}:</td>
+                                            <td>#{r.rooms_descriptions}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <h:form>
+                                    <h:commandButton value="Đặt phòng"
+                                                     styleClass="btn btn-warning">
+                                        <f:ajax listener="#{bill_Bean.addItemsToBook(IdR, nameR, priceR, imgR)}"></f:ajax>
+                                    </h:commandButton>
+                                     <h:commandButton value="Xem chi tiết"
+                                                     styleClass="btn btn-info">
+                                         <f:ajax listener="#{bill_Bean.addItemsToBook(IdR, nameR, priceR, imgR)}"></f:ajax>
+                                    </h:commandButton>
+                                </h:form>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    
+                    
+                    </c:forEach>
+                    
+                   
+                    
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Home Room Section End -->
+   
+    
+</ui:composition>

@@ -1,0 +1,107 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+
+    </h:head>
+    <h:body>
+        <ui:composition template="templates/base_hotel.xhtml">
+
+
+
+            <ui:define name="service">
+
+            </ui:define>
+
+            <ui:define name="content">
+
+                <div class="container " >
+                    <h1 class = "text-center">#{rMsg["rooms.admin"]}</h1>   
+
+                    <h:link  styleClass="btn btn-warning btn-left" value="#{rMsg['rooms.add']}" outcome="rooms_add?faces-redirect=true">
+                            
+
+                    </h:link>
+                    
+
+                    <h:dataTable var="xR" value="#{rooms_Bean.table_roomses}" styleClass="table" >
+                        <h:column >
+                            <f:facet name="header">#{rMsg["rooms.rooms_id"]}</f:facet>
+                                #{xR.rooms_id}
+                        </h:column>
+
+                        <h:column>
+                            <f:facet name="header">#{rMsg['rooms.rooms_name']}</f:facet>
+                                #{xR.rooms_name}
+                        </h:column>
+
+
+                        <h:column>
+                            <f:facet name="header">#{rMsg['rooms.rooms_category']}</f:facet>
+                                #{xR.rooms_category}
+                        </h:column>
+
+                        <h:column>
+                            <f:facet name="header">#{rMsg['rooms.rooms_prices']}</f:facet>
+                                #{xR.rooms_prices}
+                        </h:column>
+
+                        <h:column>
+                            <f:facet name="header">#{rMsg['rooms.rooms_sizes']}</f:facet>
+                                #{xR.rooms_sizes}
+                        </h:column>
+
+
+                        <h:column>
+                            <f:facet name="header">#{rMsg['rooms.rooms_bed']}</f:facet>
+                                #{xR.rooms_bed}
+                        </h:column>
+
+                        <h:column>
+                            <f:facet name="header">#{rMsg['rooms.rooms_descriptions']}</f:facet>
+                                #{xR.rooms_descriptions}
+                        </h:column>
+
+                        <h:column>
+                            <f:facet name="header">#{rMsg['rooms.fk_services']}</f:facet>
+                                #{xR.table_services.services_name}
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header"></f:facet>
+
+
+                            <h:form>
+                                <h:link value="#{rMsg['rooms.update']}" includeViewParams="true" outcome="rooms_add?faces-redirect=true">
+                                    <f:param name ="rooms_id" value="#{xR.rooms_id}"/>
+
+                                </h:link>
+                                |
+                                <h:commandLink value="#{rMsg['rooms.delete']}">
+                                    <f:ajax listener ="#{rooms_Bean.deleteRooms(xR)}" onevent="deleteSuccess" onerror="deleteError" />
+                                </h:commandLink>
+                            </h:form>
+                        </h:column>
+
+                    </h:dataTable>
+                </div>
+                
+
+            </ui:define>
+
+
+
+
+
+
+
+
+
+
+
+        </ui:composition>
+    </h:body>
+</html>
+

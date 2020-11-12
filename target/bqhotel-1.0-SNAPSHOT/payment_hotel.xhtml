@@ -1,0 +1,38 @@
+
+<ui:composition template="templates/base_hotel.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+<ui:define name="service">
+
+            </ui:define>
+    <ui:define name="content">
+        <h1>#{bMsg['bill.subject']}</h1>
+        <div class="container">
+            <h:dataTable var="bill" value="#{bill_Bean.bills}">
+                <h:column>
+                    <f:facet name="header">
+                        #{rMsg['rooms.rooms_id']}
+                    </f:facet>
+                    #{bill['roomId']}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">
+                        #{rMsg['rooms.rooms_name']}
+                    </f:facet>
+                    #{bill['roomName']}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">
+                        #{rMsg['rooms.rooms_prices']}
+                    </f:facet>
+                    #{bill['roomPrice']}
+                </h:column>
+                <h:column>
+                    <f:facet name = "header"></f:facet>
+                </h:column>
+            </h:dataTable>
+        </div>
+        </ui:define>
+</ui:composition>

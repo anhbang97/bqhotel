@@ -1,0 +1,118 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" 
+                xmlns:h="http://xmlns.jcp.org/jsf/html" 
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+
+  
+    
+    <!-- Header Section Begin -->
+    <header class="header-section">
+        <div class="top-nav">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <ul class="tn-left">
+                            <li><i class="fa fa-phone"></i> (12) 345 67890</li>
+                            <li><i class="fa fa-envelope"></i> BQHotel2020@gmail.com</li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="tn-right">
+                            <div class="top-social">
+                                <a href="#"><i class="fa fa-facebook"></i></a>
+                                <a href="#"><i class="fa fa-twitter"></i></a>
+                                <a href="#"><i class="fa fa-tripadvisor"></i></a>
+                                <a href="#"><i class="fa fa-instagram"></i></a>
+                            </div>
+
+                             <a href="#" class="bk-btn">Đặt ngay</a>
+                             <a href="http://localhost:8080/bqhotel/faces/signup_hotel.xhtml" class="bk-btn"> Đăng ký   </a>                            
+                             <a href="http://localhost:8080/bqhotel/faces/signin_hotel.xhtml" class="bk-btn"> Đặng nhập   </a>
+                              
+                            <div class="language-option">
+                                <h:graphicImage name="flag.png" library="img" />
+                               
+                                <span>Vn <i class="fa fa-angle-down"></i></span>
+                                <div class="flag-dropdown">
+                                    <ul>
+                                        <li><a href="#">XX</a></li>
+                                        <li><a href="#">YY</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="menu-item">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-2">
+                        <div class="logo">
+                            <a href="#">
+                                <h:graphicImage name="logo.png" library="img" />
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-10">
+                         <div class="nav-menu">
+                            <nav class="mainmenu">
+                                <ul>
+                                    <li class="active"><a href="http://localhost:8080/bqhotel">Trang chủ</a></li>
+                                    <li class="active"><a href="./pages.html">Dịch vụ</a>
+                                        <ul class="dropdown">
+                                            <c:forEach var="xSer" items="#{menu_Bean.table_ser}">
+                                                <li><a href="#">#{xSer.services_name}</a></li>
+                                            
+                                            </c:forEach>
+                                            
+                                        </ul>
+                                    </li>
+                                    <c:forEach var="xMenu" items="#{menu_Bean.table_menus}">
+                                        <li><a href="#">#{xMenu.menu_name}</a></li>
+                                        
+                                    </c:forEach>
+                                    
+                                    
+                                    
+                                </ul>
+                            </nav>
+                            <div class="nav-right search-switch">
+                                <i class="icon_search"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Header End -->
+
+    <!-- Hero Section Begin -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="hero-text">
+                        <h1>Khách sạn BQ Hotel</h1>
+                        <p>Khách sạn của chúng tôi là sự lựa chọn hoàn hảo cho bạn. </p>
+                      
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+        <div class="hero-slider owl-carousel">
+            <div class="hs-item set-bg" >
+                 <h:graphicImage library="img" name="hero/hero-3.jpg"/>
+            </div>
+            
+           
+        </div>
+         
+    </section>
+    
+
+</ui:composition>

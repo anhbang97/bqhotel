@@ -1,0 +1,90 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+
+    </h:head>
+    <h:body>
+        <ui:composition template="templates/base_hotel.xhtml">
+
+
+
+            <ui:define name="service">
+
+            </ui:define>
+
+            <ui:define name="content">
+                <div class="container">
+                    <h1 class = "text-center">#{rMsg["rooms.admin"]}</h1> 
+                    <h:form enctype="multipart/form-data">
+
+
+                        <div class="form-group">
+                            <h:outputLabel value ="#{rMsg['rooms.rooms_name']}"/>
+                            <h:inputText id ="txtName" value="#{rooms_Bean.name}" styleClass="form-control"/>
+                        </div>
+
+                        <div class="form-group">
+                            <h:outputLabel value ="#{rMsg['rooms.rooms_category']}"/>
+                            <h:inputText id ="txtCategory" value="#{rooms_Bean.category}" styleClass="form-control"/>
+                        </div>
+
+                        <div class="form-group">
+                            <h:outputLabel value ="#{rMsg['rooms.rooms_prices']}"/>
+                            <h:inputText id ="txtPrices" value="#{rooms_Bean.price}" styleClass="form-control"/>
+                        </div>
+
+                        <div class="form-group">
+                            <h:outputLabel value ="#{rMsg['rooms.rooms_sizes']}"/>
+                            <h:inputText id ="txtSizes" value="#{rooms_Bean.size}" styleClass="form-control"/>
+                        </div>
+
+                        <div class="form-group">
+                            <h:outputLabel value ="#{rMsg['rooms.rooms_bed']}"/>
+                            <h:inputText id ="txtBed" value="#{rooms_Bean.bed}" styleClass="form-control"/>
+                        </div>
+
+
+                        <div class="form-group">
+                            <h:outputLabel  value ="#{rMsg['rooms.fk_services']}"/>
+                            <h:selectOneMenu id="Services" value ="#{rooms_Bean.services}"
+                                             styleClass="form-control"
+                                             converter="ServicesConverter">
+                                <f:selectItems  var="xSer" value="#{menu_Bean.table_ser}"
+                                                itemLabel="#{xSer.services_name}" itemValue="#{xSer}"          
+                                                />
+                            </h:selectOneMenu>
+                        </div>
+
+                        <div class="form-group">
+                            <h:outputLabel value ="#{rMsg['rooms.rooms_descriptions']}"/>
+                            <h:inputTextarea id ="txtDes" value="#{rooms_Bean.descriptions}" styleClass="form-control"/>
+                        </div>
+                        
+                        <div class = "form-group">
+                            <h:outputLabel value="#{rMsg['rooms.rooms_image']}"/>
+                            <h:inputFile styleClass="form-control" value="#{rooms_Bean.imgFile}"
+                                         id="fileImage"
+                                         validator ="UploadValidator"
+                                         />
+                            <h:message for="fileImage" />
+                            
+                        </div>
+
+                        <div class="form-group">
+                            <h:inputHidden value="#{rooms_Bean.roomID}"/>
+                            <h:commandButton class="btn btn-warning" value = "Thêm phòng" action="#{rooms_Bean.addRooms()}"/>
+                        </div> 
+                    </h:form>
+
+                </div>
+            </ui:define>
+
+
+        </ui:composition>
+    </h:body>
+</html>
+
